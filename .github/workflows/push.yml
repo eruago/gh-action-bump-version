@@ -43,5 +43,5 @@ jobs:
 
       - name: 'Output Step'
         env:
-          NEW_TAG: ${{ steps.bumptag.outputs.tag }}
+          NEW_TAG: ${{ steps.version-bump.outputs.newTag }}
         run: echo "new tag $NEW_TAG"
