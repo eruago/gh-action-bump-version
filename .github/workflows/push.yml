@@ -34,7 +34,7 @@ jobs:
       - name: 'cat package.json'
         run: cat ./package.json
 
-      - name: 'Output Step'
-        env:
-          NEW_TAG: ${{ steps.version-bump.outputs.newTag }}
-        run: echo "new tag $NEW_TAG"
+#      - name: 'Output Step'
+#        env:
+#          NEW_TAG: ${{ steps.version-bump.outputs.newTag }}
+#        run: echo "new tag $NEW_TAG"
