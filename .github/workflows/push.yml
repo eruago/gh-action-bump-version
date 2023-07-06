@@ -34,7 +34,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          default: release
+          default: prerelease
 
       - name: 'cat package.json'
         run: cat ./package.json
