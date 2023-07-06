@@ -11,22 +11,33 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 'Checkout source code'
-        uses: 'actions/checkout@v2'
+      - name: Checkout do repositório
+        uses: actions/checkout@v3
         with:
+          fetch-depth: 0 
           ref: ${{ github.ref }}
+
+      - name: Bump version and push tag
+        id: bumptag
+        uses: anothrNick/github-tag-action@1.61.0 # Don't use @master unless you're happy to test the latest version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
+          DEFAULT_BUMP: patch    
+
       - name: 'cat package.json'
         run: cat ./package.json
+
       - name: 'Automated Version Bump'
         id: version-bump
         uses: 'phips28/gh-action-bump-version@master'
-        with:
-          tag-prefix: 'v'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: 'cat package.json'
         run: cat ./package.json
+
       - name: 'Output Step'
         env:
-          NEW_TAG: ${{ steps.version-bump.outputs.newTag }}
+          NEW_TAG: ${{ steps.bumptag.outputs.tag }}
         run: echo "new tag $NEW_TAG"
