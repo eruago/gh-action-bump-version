@@ -1,6 +1,10 @@
 {
   "name": "gh-action-bump-version",
+<<<<<<< HEAD
   "version": "0.1.2",
+=======
+  "version": "0.0.2",
+>>>>>>> a1bda87c788c8ea0ca1cdc80b06100752817364a
   "repository": {
     "type": "git",
     "url": "git+https://github.com/phips28/gh-action-bump-version.git"
