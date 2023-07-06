@@ -31,8 +31,8 @@ jobs:
           patch-wording:  'patch'
           tag-prefix:  'v'
 
-      - name: 'cat package.json'
-        run: cat ./package.json
+#      - name: 'cat package.json'
+#        run: cat ./package.json
 
 #      - name: 'Output Step'
 #        env:
